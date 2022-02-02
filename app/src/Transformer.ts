@@ -32,7 +32,6 @@ class Transformer {
       from: string,
       to: string,
       quantity: any,
-      links: any[]
     ) => {
       let linkIndex = links.findIndex((link: any) => {
         return link.source === from && link.target === to;
@@ -46,8 +45,7 @@ class Transformer {
         });
       } else {
         links[linkIndex].value += Number(quantity);
-      }
-      
+      } 
     };
     data.forEach((entry, index) => {
       let { From, To, Quantity } = entry;
@@ -64,27 +62,25 @@ class Transformer {
         (isFromPolkstarter && toPriWallet) ||
         (isFromPolkstarter && toPancake) ||
         (isFromPriWallet && toPancake);
-      if (baseConditions) addOrUpdateLink(From, To, Quantity, links);
+      if (baseConditions) addOrUpdateLink(From, To, Quantity);
       // if transactions are going into other wallets then add link for that.
       if (
         (isFromPolkstarter && toOtherWallets) ||
         (isFromPriWallet && toOtherWallets)
       ) {
-        addOrUpdateLink(From, OtherWallet, Quantity, links);
+        addOrUpdateLink(From, OtherWallet, Quantity);
       }
       // Count all transactions coming into primary wallet
       if (toPriWallet) {
         HODL += Number(Quantity);
       }
       // Subtract outgoing transactions from primary wallet
-      if (isFromPriWallet) {
-        if (toOtherWallets || toPancake) {
-          HODL -= Number(Quantity);
-        }
+      if (isFromPriWallet && (toOtherWallets || toPancake)) {
+        HODL -= Number(Quantity);
       }
       // finally create the HODL link when the loop ends.
       if (index === data.length - 1) {
-        addOrUpdateLink(Owner, "HODL", HODL, links);
+        addOrUpdateLink(Owner, "HODL", HODL);
       }
     });
 
