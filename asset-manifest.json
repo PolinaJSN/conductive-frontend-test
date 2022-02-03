@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/conductive-frontend-test/static/css/main.073c9b0a.css",
-    "main.js": "/conductive-frontend-test/static/js/main.2c5e0d64.js",
+    "main.css": "/conductive-frontend-test/static/css/main.964fdded.css",
+    "main.js": "/conductive-frontend-test/static/js/main.d8b01168.js",
     "static/js/787.c1112931.chunk.js": "/conductive-frontend-test/static/js/787.c1112931.chunk.js",
     "index.html": "/conductive-frontend-test/index.html",
-    "main.073c9b0a.css.map": "/conductive-frontend-test/static/css/main.073c9b0a.css.map",
-    "main.2c5e0d64.js.map": "/conductive-frontend-test/static/js/main.2c5e0d64.js.map",
+    "main.964fdded.css.map": "/conductive-frontend-test/static/css/main.964fdded.css.map",
+    "main.d8b01168.js.map": "/conductive-frontend-test/static/js/main.d8b01168.js.map",
     "787.c1112931.chunk.js.map": "/conductive-frontend-test/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.2c5e0d64.js"
+    "static/css/main.964fdded.css",
+    "static/js/main.d8b01168.js"
   ]
 }
