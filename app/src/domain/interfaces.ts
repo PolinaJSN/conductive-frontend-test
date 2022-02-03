@@ -18,4 +18,6 @@ type SLink = d3Sankey.SankeyLink<SNodeExtra, SLinkExtra>;
 export interface DAG {
   nodes: SNode[];
   links: SLink[];
+  transactionsProcessed: number;
+  totalQUIDD: number;
 }

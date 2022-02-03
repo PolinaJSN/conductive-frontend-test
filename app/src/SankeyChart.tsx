@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import * as d3 from "d3";
 import * as d3Sankey from "d3-sankey";
+import { DAG } from "./domain/interfaces";
 
-export default function SankeyChartComponent({ data }: { data: any }) {
+export default function SankeyChartComponent({ data }: { data: DAG }) {
+  const svgEl = useRef(null);
   useEffect(() => {
-    let svg = d3.select("#sankey"),
+    let svg = d3.select(svgEl.current),
       width = +svg.attr("width"),
       height = +svg.attr("height");
 
@@ -100,5 +102,11 @@ export default function SankeyChartComponent({ data }: { data: any }) {
     });
   }, [data]);
 
-  return <svg id="sankey" width="960" height="500"></svg>;
+  return (
+    <div>
+      <div>Total transactions processed {data.transactionsProcessed}</div>
+      <div>Total Value QUIDD {data.totalQUIDD}</div>
+      <svg ref={svgEl} width="960" height="500"></svg>
+    </div>
+  );
 }
